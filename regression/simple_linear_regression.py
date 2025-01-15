@@ -32,8 +32,9 @@ y_pred = regressor.predict(X_test) # Predict the test set results. This method t
 # Evaluating the Model Performance
 from sklearn.metrics import r2_score
 from sklearn.metrics import mean_squared_error
-print(mean_squared_error(y_test, y_pred)) # The mean_squared_error function is used to calculate the mean squared error. It takes the actual values and the predicted values as arguments and returns the mean squared error. The mean squared error is a measure of how well the model is performing. It ranges from 0 to infinity, where 0 indicates a perfect model.
-print(r2_score(y_test, y_pred)) # The r2_score function is used to calculate the coefficient of determination. It takes the actual values and the predicted values as arguments and returns the coefficient of determination. The coefficient of determination is a measure of how well the model is performing. It ranges from 0 to 1, where 1 indicates a perfect model.
+print("Simple Linear Regression Evaluation")
+print("Mean Squared Error: ", mean_squared_error(y_test, y_pred)) # The mean_squared_error function is used to calculate the mean squared error. It takes the actual values and the predicted values as arguments and returns the mean squared error. The mean squared error is a measure of how well the model is performing. It ranges from 0 to infinity, where 0 indicates a perfect model.
+print("R2 Score: ", r2_score(y_test, y_pred)) # The r2_score function is used to calculate the coefficient of determination. It takes the actual values and the predicted values as arguments and returns the coefficient of determination. The coefficient of determination is a measure of how well the model is performing. It ranges from 0 to 1, where 1 indicates a perfect model.
 
 # Visualising the Training set results.
 plt.scatter(X_train, y_train, color = 'red') # Create a scatter plot of the training set. The scatter method takes the x and y coordinates of the points to be plotted as arguments. The color parameter specifies the color of the points.
@@ -52,11 +53,11 @@ plt.ylabel('Salary') # Set the y-axis label.
 plt.show() # Display the plot.
 
 # Making a single prediction (for example the salary of an employee with 12 years of experience)
-print(regressor.predict([[12]])) # The predict method expects a 2D array as the input. We need to pass the years of experience as a 2D array. The result will be the predicted salary of an employee with 12 years of experience.
+#print(regressor.predict([[12]])) # The predict method expects a 2D array as the input. We need to pass the years of experience as a 2D array. The result will be the predicted salary of an employee with 12 years of experience.
 
 # Getting the final linear regression equation with the values of the coefficients
-print(regressor.coef_) # Get the value of the coefficient (b1 or slope coefficient).
-print(regressor.intercept_) # Get the value of the intercept (b0 or constant).
+#print(regressor.coef_) # Get the value of the coefficient (b1 or slope coefficient).
+#print(regressor.intercept_) # Get the value of the intercept (b0 or constant).
 
 # The equation of the simple linear regression model is:
 # Salary = regressor.coef * YearsExperience + regression.intercept_
