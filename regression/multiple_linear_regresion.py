@@ -48,11 +48,12 @@ from sklearn.metrics import mean_squared_error
 print(mean_squared_error(y_test, y_pred)) # The mean_squared_error function is used to calculate the mean squared error. It takes the actual values and the predicted values as arguments and returns the mean squared error. The mean squared error is a measure of how well the model is performing. It ranges from 0 to infinity, where 0 indicates a perfect model.
 print(r2_score(y_test, y_pred)) # The r2_score function is used to calculate the coefficient of determination. It takes the actual values and the predicted values as arguments and returns the coefficient of determination. The coefficient of determination is a measure of how well the model is performing. It ranges from 0 to 1, where 1 indicates a perfect model.
 
+# Making a single prediction (for example the profit of a startup with R&D Spend = 160000, Administration Spend = 130000, Marketing Spend = 300000 and State = California)
+print(regressor.predict([[1, 0, 0, 160000, 130000, 300000]])) # The predict method expects a 2D array as the input. We need to pass the values of the independent variables as a 2D array. The result will be the predicted profit of a startup with the specified values of the independent variables.
+
 # Getting the final linear regression equation with the values of the coefficients
 print(regressor.coef_) # Get the value of the coefficients.
 print(regressor.intercept_) # Get the value of the intercept.
 
 # The final multiple linear regression equation is:
 # Profit = 86.6 * Dummy State 1 - 872 * Dummy State 2 + 786 * Dummy State 3 - 0.773 * R&D Spend + 0.0329 * Administration + 0.0366 * Marketing Spend + 42467.53
-
-
