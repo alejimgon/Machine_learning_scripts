@@ -13,7 +13,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_dir)
 
 # Importing the dataset.
-dataset = pd.read_csv('Salary_Data.csv')
+dataset = pd.read_csv('ENTER_THE_NAME_OF_YOUR_DATASET_HERE.csv')
 X = dataset.iloc[:, :-1].values # ilock stands for locate indexes. [rows, columns] : means all the rows and :-1 all the columns except the last one.
 y = dataset.iloc[:, -1].values # : means all the rows and -1 the last column
 
@@ -31,9 +31,7 @@ y_pred = regressor.predict(X_test) # Predict the test set results. This method t
 
 # Evaluating the Model Performance
 from sklearn.metrics import r2_score
-from sklearn.metrics import mean_squared_error
 print("Simple Linear Regression Evaluation")
-print("Mean Squared Error: ", mean_squared_error(y_test, y_pred)) # The mean_squared_error function is used to calculate the mean squared error. It takes the actual values and the predicted values as arguments and returns the mean squared error. The mean squared error is a measure of how well the model is performing. It ranges from 0 to infinity, where 0 indicates a perfect model.
 print("R2 Score: ", r2_score(y_test, y_pred)) # The r2_score function is used to calculate the coefficient of determination. It takes the actual values and the predicted values as arguments and returns the coefficient of determination. The coefficient of determination is a measure of how well the model is performing. It ranges from 0 to 1, where 1 indicates a perfect model.
 
 # Visualising the Training set results.

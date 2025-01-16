@@ -1,4 +1,5 @@
 # Multiple Linear Regression
+# This script needs to be modified if the dataset has missing data or categorical data.
 
 # Importing the libraries
 import numpy as np # Allows us to work with arrays
@@ -13,16 +14,15 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_dir)
 
 # Importing the dataset
-dataset = pd.read_csv('50_Startups.csv')
+dataset = pd.read_csv('ENTER_THE_NAME_OF_YOUR_DATASET_HERE.csv')
 X = dataset.iloc[:, :-1].values # ilock stands for locate indexes. [rows, columns] : means all the rows and :-1 all the columns except the last one.
 y = dataset.iloc[:, -1].values # : means all the rows and -1 the last column
 
-# Encoding categorical data (creating dummy variables)
-from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import OneHotEncoder
-ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [3])], remainder='passthrough') # The OneHotEncoder class is used to encode categorical data. The ColumnTransformer class is used to apply the OneHotEncoder to the dataset. The transformers argument specifies the encoder to use and the columns to encode. The remainder argument specifies what to do with the columns that are not transformed.
-X = np.array(ct.fit_transform(X)) # The fit_transform method is used to transform the dataset. It takes the matrix of features as an argument and returns the transformed matrix of features.
-#print(X)
+# Encoding categorical data (creating dummy variables). Use if applicable.
+#from sklearn.compose import ColumnTransformer
+#from sklearn.preprocessing import OneHotEncoder
+#ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [3])], remainder='passthrough') # The OneHotEncoder class is used to encode categorical data. The ColumnTransformer class is used to apply the OneHotEncoder to the dataset. The transformers argument specifies the encoder to use and the columns to encode. The remainder argument specifies what to do with the columns that are not transformed.
+#X = np.array(ct.fit_transform(X)) # The fit_transform method is used to transform the dataset. It takes the matrix of features as an argument and returns the transformed matrix of features.
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
@@ -31,7 +31,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, rando
 # We don't need to apply feature scaling to multiple linear regression because the coefficients of the independent variables will compensate for the different scales.
 
 # Training the Multiple Linear Regression model on the Training set
-# We don't nned to worry about the dummy variable trap because the class (LinearRegression) takes care of it.
+# We don't need to worry about the dummy variable trap because the class (LinearRegression) takes care of it.
 # We don't need to worry about the backward elimination because the class (LinearRegression) takes care of it.
 from sklearn.linear_model import LinearRegression
 regressor = LinearRegression() # Create an object of the LinearRegression class.
@@ -44,9 +44,7 @@ print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),
 
 # Evaluating the Model Performance
 from sklearn.metrics import r2_score
-from sklearn.metrics import mean_squared_error
 print("Multiple Linear Regression Evaluation")
-print("Mean Squared Error: ", mean_squared_error(y_test, y_pred)) # The mean_squared_error function is used to calculate the mean squared error. It takes the actual values and the predicted values as arguments and returns the mean squared error. The mean squared error is a measure of how well the model is performing. It ranges from 0 to infinity, where 0 indicates a perfect model.
 print("R2 Score: ", r2_score(y_test, y_pred)) # The r2_score function is used to calculate the coefficient of determination. It takes the actual values and the predicted values as arguments and returns the coefficient of determination. The coefficient of determination is a measure of how well the model is performing. It ranges from 0 to 1, where 1 indicates a perfect model.
 
 # Making a single prediction (for example the profit of a startup with R&D Spend = 160000, Administration Spend = 130000, Marketing Spend = 300000 and State = California)
@@ -55,6 +53,3 @@ print("R2 Score: ", r2_score(y_test, y_pred)) # The r2_score function is used to
 # Getting the final linear regression equation with the values of the coefficients
 #print(regressor.coef_) # Get the value of the coefficients.
 #print(regressor.intercept_) # Get the value of the intercept.
-
-# The final multiple linear regression equation is:
-# Profit = 86.6 * Dummy State 1 - 872 * Dummy State 2 + 786 * Dummy State 3 - 0.773 * R&D Spend + 0.0329 * Administration + 0.0366 * Marketing Spend + 42467.53
