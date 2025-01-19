@@ -22,7 +22,7 @@ os.chdir(script_dir)
 # You will need to handle missing data or encode categorical data. 
 # We don't need to apply feature scaling because the Random Forest Regression model is not sensitive to the scale of the features. The model is based on a tree structure that splits the dataset into different regions based on the independent variables. The model makes predictions based on the average of the dependent variable in each region. We don't need to apply feature scaling because the model will make the same predictions regardless of the scale of the features.
 dataset = pd.read_csv('ENTER_THE_NAME_OF_YOUR_DATASET_HERE.csv')
-X = dataset.iloc[:, 1:-1].values # ilock stands for locate indexes. [rows, columns] : means all the rows and 1:-1 all the columns except the last one. We don't need the first column because the second column already contains the level.
+X = dataset.iloc[:, :-1].values # ilock stands for locate indexes. [rows, columns] : means all the rows and :-1 all the columns except the last one.
 y = dataset.iloc[:, -1].values # : means all the rows and -1 the last column
 
 # Splitting the dataset into the Training set and Test set
