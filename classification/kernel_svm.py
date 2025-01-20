@@ -16,7 +16,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_dir)
 
 # Importing the dataset
-dataset = pd.read_csv('Social_Network_Ads.csv')
+dataset = pd.read_csv('ENTER_THE_NAME_OF_YOUR_DATASET_HERE.csv')
 X = dataset.iloc[:, :-1].values # ilock stands for locate indexes. [rows, columns] : means all the rows and :-1 all the columns except the last one.
 y = dataset.iloc[:, -1].values # : means all the rows and -1 the last column
 
@@ -36,14 +36,11 @@ from sklearn.svm import SVC
 classifier = SVC(kernel = 'rbf', random_state = 0) # Create an object of the SVC class. The kernel parameter specifies the kernel type to be used in the algorithm. The random_state parameter is used to ensure that we get the same results every time we run the code.
 classifier.fit(X_train, y_train) # Fit the classifier to the training set.
 
-# Predicting the Test set results
-y_pred = classifier.predict(X_test) # Predict the test set results.
-print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1)) # Concatenate the predicted values and the actual values. The reshape method is used to change the shape of the array (from horizontal to vertical). The len function returns the length of the array. The 1 argument specifies the axis along which the arrays will be joined.
-
-# Making the Confusion Matrix
+# Predicting the Test set results and Making the Confusion Matrix
 # The confusion matrix is a table that is often used to describe the performance of a classification model on a set of test data for which the true values are known.
 # The confusion matrix will show us the number of correct and incorrect predictions.
 from sklearn.metrics import confusion_matrix, accuracy_score
+y_pred = classifier.predict(X_test) # Predict the test set results.
 cm = confusion_matrix(y_test, y_pred) # Create a confusion matrix to evaluate the model's performance.
 print(cm)
 accuracy_score = accuracy_score(y_test, y_pred) # Calculate the accuracy of the model. The accuracy in the test set is the number of correct predictions divided by the total number of predictions in the test set.
