@@ -44,6 +44,19 @@ plt.show() # Display the plot.
 kmeans = KMeans(n_clusters = 5, init = 'k-means++', random_state = 42) # Create an object of the KMeans class and specify the number of clusters.
 y_kmeans = kmeans.fit_predict(X) # Fit the KMeans model to the dataset and predict the cluster for each data point.
 
+# Visualising the clusters
+plt.scatter(X[y_kmeans == 0, 3], X[y_kmeans == 0, 4], s = 100, c = 'red', label = 'Cluster 1')
+plt.scatter(X[y_kmeans == 1, 3], X[y_kmeans == 1, 4], s = 100, c = 'blue', label = 'Cluster 2')
+plt.scatter(X[y_kmeans == 2, 3], X[y_kmeans == 2, 4], s = 100, c = 'green', label = 'Cluster 3')
+plt.scatter(X[y_kmeans == 3, 3], X[y_kmeans == 3, 4], s = 100, c = 'cyan', label = 'Cluster 4')
+plt.scatter(X[y_kmeans == 4, 3], X[y_kmeans == 4, 4], s = 100, c = 'magenta', label = 'Cluster 5')
+plt.scatter(kmeans.cluster_centers_[:, 3], kmeans.cluster_centers_[:, 4], s = 300, c = 'yellow', label = 'Centroids')
+plt.title('Clusters of customers')
+plt.xlabel('Annual Income (k$)')
+plt.ylabel('Spending Score (1-100)')
+plt.legend()
+plt.show()
+
 # Adding the cluster labels to the original dataset
 dataset['Cluster'] = y_kmeans 
 
