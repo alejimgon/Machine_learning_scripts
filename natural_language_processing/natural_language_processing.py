@@ -30,6 +30,7 @@ classifiers = [
     (LogisticRegression(random_state=0), "Logistic Regression"),
     (KNeighborsClassifier(n_neighbors=5, metric='minkowski', p=2), "K-NN"),
     (SVC(kernel='linear', random_state=0), "SVM"),
+    (SVC(kernel='rbf', random_state=0), "Kernel SVM"),
     (GaussianNB(), "Naive Bayes"),
     (DecisionTreeClassifier(criterion='entropy', random_state=0), "Decision Tree"),
     (RandomForestClassifier(n_estimators=100, criterion='entropy', random_state=0), "Random Forest"),
