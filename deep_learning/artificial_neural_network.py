@@ -51,7 +51,7 @@ X_test = sc.transform(X_test) # We only apply the transform method to the test s
 ann = tf.keras.models.Sequential() # Create an object of the Sequential class. This class allows us to build the artificial neural network as a sequence of layers.
 
 ## Adding the input layer and the first hidden layer
-ann.add(tf.keras.layers.Dense(units=6, activation='relu')) # Add a dense layer to the ANN. 
+ann.add(tf.keras.layers.Dense(units=6, activation='relu')) # Add a dense layer to the ANN. Dense stands for fully connected.
 # The units parameter specifies the number of neurons in the layer. 
 # The activation parameter specifies the activation function to be used in the layer.
 
