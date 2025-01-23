@@ -48,7 +48,7 @@ y = le.fit_transform(y) # Fit and transform the dependent variable. We don't nee
 # We need to split the dataset into a training set and a test set. We will train the model on the training set and test the model on the test set.
 # We have to apply feature scaling after splitting the dataset because we don't want to fit the test set to the training set. We want to fit the training set to the training set and the test set to the test set. This will prevent information leakage.
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 1) # We split the dataset into 80% training set and 20% test set. The random_state parameter is used to ensure that we get the same results every time we run the code.
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0) # We split the dataset into 80% training set and 20% test set. The random_state parameter is used to ensure that we get the same results every time we run the code.
 #print(X_train)
 #print(X_test)
 #print(y_train)
