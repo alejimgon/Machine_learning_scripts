@@ -9,16 +9,13 @@
 import matplotlib.pyplot as plt # Allows us to plot charts
 import pandas as pd # Allows us to import datasets and create the matrix of features and dependent variable
 import numpy as np
-import os
 
-# Get the directory of the current script. 
-script_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Change the working directory to the script's directory.
-os.chdir(script_dir) 
+# Setting the path to the data folder
+main_repo_folder = '/'.join(__file__.split('/')[:-1])
+data_folder = f'{main_repo_folder}/data'
 
 # Importing the dataset
-dataset = pd.read_csv('Data.csv')
+dataset = pd.read_csv(f'{data_folder}/YOUR_DATASET.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 
