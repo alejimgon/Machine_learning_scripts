@@ -9,19 +9,19 @@
 import numpy as np # Allows us to work with arrays
 import matplotlib.pyplot as plt # Allows us to plot charts
 import pandas as pd # Allows us to import datasets and create the matrix of features and dependent variable
-import os
 
-# Get the directory of the current script.
-script_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Change the working directory to the script's directory.
-os.chdir(script_dir)
+# Setting the path to the data folder
+main_repo_folder = '/'.join(__file__.split('/')[:-1])
+data_folder = f'{main_repo_folder}/data'
 
 # Importing the dataset
 # To use a different dataset, change the name of the csv file and the indexes of the columns. 
 # You will need to handle missing data or encode categorical data. 
-# We don't need to apply feature scaling because the Random Forest Regression model is not sensitive to the scale of the features. The model is based on a tree structure that splits the dataset into different regions based on the independent variables. The model makes predictions based on the average of the dependent variable in each region. We don't need to apply feature scaling because the model will make the same predictions regardless of the scale of the features.
-dataset = pd.read_csv('ENTER_THE_NAME_OF_YOUR_DATASET_HERE.csv')
+# We don't need to apply feature scaling because the Random Forest Regression model is not sensitive to the scale of the features. 
+# The model is based on a tree structure that splits the dataset into different regions based on the independent variables. 
+# The model makes predictions based on the average of the dependent variable in each region. 
+# We don't need to apply feature scaling because the model will make the same predictions regardless of the scale of the features.
+dataset = pd.read_csv(f'{data_folder}/YOUR_DATASET.csv')
 X = dataset.iloc[:, :-1].values # ilock stands for locate indexes. [rows, columns] : means all the rows and :-1 all the columns except the last one.
 y = dataset.iloc[:, -1].values # : means all the rows and -1 the last column
 
