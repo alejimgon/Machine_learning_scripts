@@ -7,16 +7,13 @@
 import numpy as np # Allows us to work with arrays
 import matplotlib.pyplot as plt # Allows us to plot charts
 import pandas as pd # Allows us to import datasets and create the matrix of features and dependent variable
-import os
 
-# Get the directory of the current script.
-script_dir = os.path.dirname(os.path.abspath(__file__))
+# Setting the path to the data folder
+main_repo_folder = '/'.join(__file__.split('/')[:-1])
+data_folder = f'{main_repo_folder}/data'
 
-# Change the working directory to the script's directory.
-os.chdir(script_dir)
-
-# Importing the dataset.
-dataset = pd.read_csv('Mall_Customers.csv')
+# Importing the dataset
+dataset = pd.read_csv(f'{data_folder}/YOUR_DATASET_.csv')
 X = dataset.iloc[:, 1:].values # ilock stands for locate indexes. [rows, columns] : means all the rows and 3:4 all the columns except the first one.
 
 # Encoding categorical data (creation of dummy variable).
