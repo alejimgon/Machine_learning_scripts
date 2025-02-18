@@ -14,7 +14,7 @@ main_repo_folder = '/'.join(__file__.split('/')[:-1])
 data_folder = f'{main_repo_folder}/data'
 
 # Importing the dataset
-dataset = pd.read_csv(f'{data_folder}/YOUR_DATASET_.csv')
+dataset = pd.read_csv(f'{data_folder}/YOUR_DATASET.csv')
 X = dataset.iloc[:, :-1].values # ilock stands for locate indexes. [rows, columns] : means all the rows and :-1 all the columns except the last one.
 y = dataset.iloc[:, -1].values # : means all the rows and -1 the last column
 
