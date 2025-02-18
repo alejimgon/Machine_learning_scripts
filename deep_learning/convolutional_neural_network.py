@@ -10,13 +10,10 @@
 # Importing the libraries
 import tensorflow as tf # Allows us to build and train the convolutional neural network
 from keras.preprocessing.image import ImageDataGenerator # Allows us to preprocess the images
-import os
 
-# Get the directory of the current script.
-script_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Change the working directory to the script's directory.
-os.chdir(script_dir)
+# Setting the path to the data folder
+main_repo_folder = '/'.join(__file__.split('/')[:-1])
+data_folder = f'{main_repo_folder}/data'
 
 # Part 1 - Data Preprocessing
 ## Preprocessing the Training set
@@ -27,7 +24,7 @@ train_datagen = ImageDataGenerator(rescale = 1./255, # Rescale the pixel values 
                                    shear_range = 0.2, 
                                    zoom_range = 0.2, 
                                    horizontal_flip = True)
-training_set = train_datagen.flow_from_directory('dataset/training_set',
+training_set = train_datagen.flow_from_directory('dataset/training_set', # The path to the training set.
                                                  target_size = (64, 64), # Resize the images to 64x64 pixels.
                                                  batch_size = 32, # The number of images that will go through the network at once.
                                                  class_mode = 'binary') # The type of problem we are trying to solve. It can be binary or categorical.
@@ -35,7 +32,7 @@ training_set = train_datagen.flow_from_directory('dataset/training_set',
 ## Preprocessing the Test set
 # We need to rescale the pixel values of the test set to the range [0, 1] as we did for the training set.
 test_datagen = ImageDataGenerator(rescale = 1./255)
-test_set = test_datagen.flow_from_directory('dataset/test_set',
+test_set = test_datagen.flow_from_directory('dataset/test_set', # The path to the test set.
                                             target_size = (64, 64), # Resize the images to 64x64 pixels.
                                             batch_size = 32, # The number of images that will go through the network at once.
                                             class_mode = 'binary') # The type of problem we are trying to solve. It can be binary or categorical.
