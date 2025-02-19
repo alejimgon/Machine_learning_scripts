@@ -10,7 +10,7 @@ The repository is organized into the following directories:
 - `classification/`: Contains scripts related to classification algorithms like Decision Tree, K-Nearest Neighbors, Kernel SVM, Logistic Regression, Naive Bayes, Random Forest, and Support Vector Machine.
 - `clustering/`: Contains projects related to clustering algorithms like K-Means and Hierarchical Clustering.
 - `data_preprocessing/`: Contains scripts for data preprocessing tasks.
-- `deep_learning/`: Contains scripts related to deep learning algorithms like Artificial Neural Networks, Convolutional Neural Networks, and Recurrent Neural Networks.
+- `deep_learning/`: Contains scripts related to deep learning algorithms like Artificial Neural Networks, Convolutional Neural Networks, Recurrent Neural Networks, Self Organizing Maps, and a hybrid model SOM and ANN.
 - `dimensionality_reduction/`: Contains scripts related to dimensionality reduction techniques like PCA, LDA, and Kernel PCA.
 - `model_selection/`: Contains scripts for model selection techniques like k-Fold Cross Validation and Grid Search.
 - `natural_language_processing/`: Contains scripts related to natural language processing tasks.
