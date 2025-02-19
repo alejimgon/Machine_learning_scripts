@@ -50,8 +50,9 @@ X_train, y_train = np.array(X_train), np.array(y_train) # Convert the lists to n
 # This predictors are the indicators that can help predict the output.
 # Thanks to this new data structure, we can add more indicators to the input data.
 # The new shape will be (number of samples, number of timesteps, number of features)
-# X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], X_train.shape[2])) # The new dimension is the number of features
-X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1)) # The new dimension is 1 because we only have one indicator.
+ X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], X_train.shape[2])) 
+# The new dimension is the number of features
+# X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1)) # The new dimension is 1 because we only have one indicator.
 
 # Part 2 - Building the RNN
 ## Initializing the RNN
