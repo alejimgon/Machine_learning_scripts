@@ -19,7 +19,7 @@ The repository is organized into the following directories:
 - `classification/`: Contains scripts related to classification algorithms like Decision Tree, K-Nearest Neighbors, Kernel SVM, Logistic Regression, Naive Bayes, Random Forest, and Support Vector Machine.
 - `clustering/`: Contains projects related to clustering algorithms like K-Means and Hierarchical Clustering.
 - `data_preprocessing/`: Contains scripts for data preprocessing tasks.
-- `deep_learning/`: Contains scripts related to deep learning algorithms like Artificial Neural Networks, Convolutional Neural Networks, Recurrent Neural Networks, Self Organizing Maps, a hybrid model SOM and ANN, and a Restricted Boltzmann Machine.
+- `deep_learning/`: Contains scripts related to deep learning algorithms like Artificial Neural Networks, Convolutional Neural Networks, Recurrent Neural Networks, Self Organizing Maps, a hybrid model SOM and ANN, a Restricted Boltzmann Machine, and an Autoencoder.
 - `dimensionality_reduction/`: Contains scripts related to dimensionality reduction techniques like PCA, LDA, and Kernel PCA.
 - `model_selection/`: Contains scripts for model selection techniques like k-Fold Cross Validation and Grid Search.
 - `natural_language_processing/`: Contains scripts related to natural language processing tasks.
@@ -51,21 +51,20 @@ The repository is organized into the following directories:
 
 Each script is self-contained and can be run independently. Follow these steps to use the scripts:
 
-1. Prepare Your Dataset:
-- Ensure your dataset is in CSV format.
-- Place your dataset in the data folder within the respective project directory. For example, if you are working on a classification project, place your dataset in data.
+1. **Prepare Your Dataset**:
+    - Ensure your dataset is in CSV format.
+    - Place your dataset in the `data` folder within the respective project directory. For example, if you are working on a classification project, place your dataset in [data](http://_vscodecontentref_/0).
 
-2. Modify the Script:
-- Open the script you want to run and make any necessary changes. For example, you may need to update the file path to your dataset or select different columns for analysis.
+2. **Modify the Script**:
+    - Open the script you want to run and make any necessary changes. For example, you may need to update the file path to your dataset or select different columns for analysis.
 
-3. Run the Script:
-- Navigate to the project directory and run the script. For example, to run a classification project, use the following commands:
-
-```sh
-cp DATASET.csv classification/data/
-cd classification
-python logistic_regression.py
-```
+3. **Run the Script**:
+    - Navigate to the project directory and run the script. For example, to run a classification project, use the following commands:
+    ```sh
+    cp DATASET.csv classification/data/
+    cd classification
+    python logistic_regression.py
+    ```
 
 ## Contributing
 
